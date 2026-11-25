@@ -37,6 +37,7 @@ treeViz = mountCallStackTreeViz(document.querySelector("#tree-viz"), {
 
 ### Sample Exercise: Factorial
 ```{python}
+#| eval: false
 # Given code
 def recursive_function(n):
     if n == 0:
@@ -49,6 +50,7 @@ print(recursive_function(5))
 ### Sample Exercise: Fibonacci Sequence
 
 ```{python}
+#| eval: false
 # Given code
 def recursive_function(n):
     if n <= 1:
@@ -61,6 +63,7 @@ print(recursive_function(5))
 ### Sample Exercise: Tribonacci (3 calls)
 
 ```{python}
+#| eval: false
 # Given code
 def recursive_function(n):
     # Base cases to stop the recursion
@@ -80,6 +83,7 @@ print(recursive_function(6))  # Output: 13 (0, 1, 1, 2, 4, 7, 13...)
 ### Sample Exercise: Greatest Common Divisor (Multiple Parameters)
 
 ```{python}
+#| eval: false
 def recursive_function(a, b):
   # Base case: if b is 0, the gcd is a
   if b == 0:
