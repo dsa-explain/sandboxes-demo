@@ -4,9 +4,7 @@ subtitle: "Build a graph from scratch and try every operation"
 ---
 
 Use the toolbar to add nodes and edges, select a node or edge by clicking it,
-then update or delete the current selection. This is the same graph engine
-and canvas used throughout the rest of the site -- everything you learn here
-carries over.
+then update or delete the current selection. There is no python code editor only a UI. 
 
 ```{python}
 #| echo: false
