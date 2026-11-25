@@ -229,8 +229,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>Use the toolbar to add nodes and edges, select a node or edge by clicking it, then update or delete the current selection. This is the same graph engine and canvas used throughout the rest of the site – everything you learn here carries over.</p>
-<div id="575ae127" class="cell" data-execution_count="1">
+<p>Use the toolbar to add nodes and edges, select a node or edge by clicking it, then update or delete the current selection. There is no python code editor only a UI.</p>
+<div id="1be66e05" class="cell" data-execution_count="1">
 <div class="cell-output cell-output-display">
 <script type="ojs-define">{"contents": [{"name": "sb_nodes", "value": [{"id": "A", "label": "A"}, {"id": "B", "label": "B"}, {"id": "C", "label": "C"}]}, {"name": "sb_edges", "value": [{"id": "e0", "source": "A", "target": "B", "label": ""}, {"id": "e1", "source": "B", "target": "C", "label": ""}]}]}</script>
 </div>
@@ -241,15 +241,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb1" data-startfrom="32" data-source-offset="-0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 31;"><span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> { GraphEngine } <span class="im">from</span> <span class="st">"./js/graph-engine.js"</span><span class="op">;</span></span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> { mountGraphView } <span class="im">from</span> <span class="st">"./js/graph-view.js"</span><span class="op">;</span></span>
-<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>sandboxData <span class="op">=</span> ({</span>
-<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>  <span class="dt">nodes</span><span class="op">:</span> sb_nodes<span class="op">,</span></span>
-<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>  <span class="dt">edges</span><span class="op">:</span> sb_edges<span class="op">,</span></span>
-<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span>
-<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>sandboxEngine <span class="op">=</span> <span class="kw">new</span> <span class="fu">GraphEngine</span>(sandboxData<span class="op">,</span> { <span class="dt">directed</span><span class="op">:</span> <span class="kw">false</span> })<span class="op">;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb1" data-startfrom="30" data-source-offset="-0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 29;"><span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> { GraphEngine } <span class="im">from</span> <span class="st">"./js/graph-engine.js"</span><span class="op">;</span></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> { mountGraphView } <span class="im">from</span> <span class="st">"./js/graph-view.js"</span><span class="op">;</span></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>sandboxData <span class="op">=</span> ({</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>  <span class="dt">nodes</span><span class="op">:</span> sb_nodes<span class="op">,</span></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>  <span class="dt">edges</span><span class="op">:</span> sb_edges<span class="op">,</span></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>sandboxEngine <span class="op">=</span> <span class="kw">new</span> <span class="fu">GraphEngine</span>(sandboxData<span class="op">,</span> { <span class="dt">directed</span><span class="op">:</span> <span class="kw">false</span> })<span class="op">;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div>
 <div id="ojs-cell-1-1" data-nodetype="declaration">
@@ -280,10 +280,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb2" data-startfrom="44" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 43;"><span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a>sandboxView <span class="op">=</span> <span class="fu">mountGraphView</span>(sandboxEngine<span class="op">,</span> <span class="bu">document</span><span class="op">.</span><span class="fu">querySelector</span>(<span class="st">"#sandbox-graph"</span>)<span class="op">,</span> {</span>
-<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a>  <span class="dt">width</span><span class="op">:</span> <span class="dv">760</span><span class="op">,</span></span>
-<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a>  <span class="dt">height</span><span class="op">:</span> <span class="dv">460</span><span class="op">,</span></span>
-<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb2" data-startfrom="42" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 41;"><span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a>sandboxView <span class="op">=</span> <span class="fu">mountGraphView</span>(sandboxEngine<span class="op">,</span> <span class="bu">document</span><span class="op">.</span><span class="fu">querySelector</span>(<span class="st">"#sandbox-graph"</span>)<span class="op">,</span> {</span>
+<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a>  <span class="dt">width</span><span class="op">:</span> <span class="dv">760</span><span class="op">,</span></span>
+<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a>  <span class="dt">height</span><span class="op">:</span> <span class="dv">460</span><span class="op">,</span></span>
+<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div id="ojs-cell-2" data-nodetype="declaration">
 

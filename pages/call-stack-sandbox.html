@@ -226,8 +226,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>Write a function and call it. The page traces every call — including recursive ones — and draws the stack instead of printing arrows.</p>
-<p>Each call is a single frame. The parameters sit inside that frame, and the frame outlined in orange is the call that is running. When a call returns, it stays on the stack in grey with its result beside it. The note above the stack says when a function is called and what came back. <code>print()</code> still shows up under Output.</p>
+<p>Instead of tree this visualises recursion as stack. the call which returns does not disappear but gets greyed out (note - feels a bit confusing but disappearing also feels confusing, not sure which is better). shows an arrow from the call to the result.</p>
 <div class="panel-grid panel-grid--stack">
   <div class="panel">
     <div id="stack-editor"></div>
@@ -237,16 +236,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb1" data-startfrom="23" data-source-offset="-0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 22;"><span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> { PythonEditorInput } <span class="im">from</span> <span class="st">"./js/utils/python-editor-input.js"</span><span class="op">;</span></span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> { mountCallStackViz<span class="op">,</span> callStackStarterCode } <span class="im">from</span> <span class="st">"./js/call-stack-viz.js"</span><span class="op">;</span></span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>stackEditor <span class="op">=</span> PythonEditorInput<span class="op">.</span><span class="fu">mountPlayable</span>(</span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>  <span class="bu">document</span><span class="op">.</span><span class="fu">querySelector</span>(<span class="st">"#stack-editor"</span>)<span class="op">,</span></span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>  {</span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>    <span class="dt">heading</span><span class="op">:</span> <span class="st">"Python"</span><span class="op">,</span></span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>    <span class="dt">defaultCode</span><span class="op">:</span> callStackStarterCode<span class="op">,</span></span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb1" data-startfrom="21" data-source-offset="-0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 20;"><span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> { PythonEditorInput } <span class="im">from</span> <span class="st">"./js/utils/python-editor-input.js"</span><span class="op">;</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> { mountCallStackViz<span class="op">,</span> callStackStarterCode } <span class="im">from</span> <span class="st">"./js/call-stack-viz.js"</span><span class="op">;</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>stackEditor <span class="op">=</span> PythonEditorInput<span class="op">.</span><span class="fu">mountPlayable</span>(</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>  <span class="bu">document</span><span class="op">.</span><span class="fu">querySelector</span>(<span class="st">"#stack-editor"</span>)<span class="op">,</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>  {</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>    <span class="dt">heading</span><span class="op">:</span> <span class="st">"Python"</span><span class="op">,</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>    <span class="dt">defaultCode</span><span class="op">:</span> callStackStarterCode<span class="op">,</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div>
 <div id="ojs-cell-1-1" data-nodetype="declaration">
@@ -270,9 +269,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb2" data-startfrom="36" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 35;"><span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>stackViz <span class="op">=</span> <span class="fu">mountCallStackViz</span>(<span class="bu">document</span><span class="op">.</span><span class="fu">querySelector</span>(<span class="st">"#stack-viz"</span>)<span class="op">,</span> {</span>
-<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>  <span class="dt">editor</span><span class="op">:</span> stackEditor<span class="op">,</span></span>
-<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb2" data-startfrom="34" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 33;"><span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>stackViz <span class="op">=</span> <span class="fu">mountCallStackViz</span>(<span class="bu">document</span><span class="op">.</span><span class="fu">querySelector</span>(<span class="st">"#stack-viz"</span>)<span class="op">,</span> {</span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>  <span class="dt">editor</span><span class="op">:</span> stackEditor<span class="op">,</span></span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div id="ojs-cell-2" data-nodetype="declaration">
 
