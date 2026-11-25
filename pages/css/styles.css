@@ -1,0 +1,328 @@
+/* styles.css ----------------------------------------------------------
+   Shared site tokens and layout. Used by every sandbox page.
+------------------------------------------------------------------------ */
+
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap");
+
+:root {
+  --highlight-box: #ffffff;
+  --ink: #19162b;
+  --ink-soft: #211d38;
+  --ink-grid: rgba(255, 255, 255, 0.055);
+  --paper: #fcfcfc;
+  --paper-edge: #ffe9c3;
+  --graphite: #4d4c6b;
+  --muted: #6a6986;
+  --muted-on-paper: #6a6986;
+  --line: #19162b;
+  --amber: #ffe9c3;
+  --amber-stroke: #19162b;
+  --coral: #feb686;
+  --coral-soft: rgba(254, 182, 134, 0.28);
+
+  --neighbour-node: #86c0fe;
+  --neighbour-node-stroke: #e8f2ff;
+
+  --font-display: "Montserrat", "Space Grotesk", sans-serif;
+  --font-body: "Montserrat", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: "Cascadia Code", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --grid-line: rgba(25, 22, 43, 0.08);
+  --grid-line-strong: rgba(25, 22, 43, 0.14);
+  --grid-size: 28px;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --border-w: 2px;
+  --border-w-thick: 2.75px;
+
+  /* Shared control chrome (playback / editor buttons) */
+  --ht-glow: #2eb7c9;
+  --ht-text: #2a3b4a;
+  --ht-muted: #6d8494;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--graphite);
+  background-image:
+    linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px),
+    linear-gradient(var(--grid-line-strong) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line-strong) 1px, transparent 1px);
+  background-size:
+    var(--grid-size) var(--grid-size),
+    var(--grid-size) var(--grid-size),
+    calc(var(--grid-size) * 4) calc(var(--grid-size) * 4),
+    calc(var(--grid-size) * 4) calc(var(--grid-size) * 4);
+  background-position: -1px -1px, -1px -1px, -1px -1px, -1px -1px;
+  background-attachment: fixed;
+}
+
+h1, h2, h3, .title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+/* ---------- page layout ---------- */
+
+.panel-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 1.5rem;
+  align-items: start;
+  margin: 1.25rem 0 2rem;
+}
+
+.panel {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: var(--border-w-thick) solid var(--line);
+}
+
+@media (max-width: 860px) {
+  .panel-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---------- shared nav / playback buttons ---------- */
+
+.ht-nav-btn {
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: 2px solid #cfe3ef;
+  background: #fff;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ht-text);
+}
+
+.ht-nav-btn:hover:not(:disabled) {
+  border-color: var(--ht-glow);
+  color: #1a8a99;
+  background: #eefafc;
+}
+
+.ht-nav-btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.ht-nav-btn-ghost {
+  background: transparent;
+}
+
+/* ---------- python editor (dr-*) ---------- */
+
+.dr-editor-root {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  padding: 1rem;
+  margin: 0;
+  box-sizing: border-box;
+  background: #ffffff;
+  color: var(--ink, #19162b);
+}
+
+.dr-editor-root h3 {
+  margin: 0;
+  font-size: 1.05rem;
+  color: var(--ink, #19162b);
+}
+
+.dr-editor-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.dr-editor-toolbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.dr-editor-root .ht-nav-btn {
+  background: #fffdf9;
+  border-color: var(--line, #19162b);
+  color: var(--ink, #19162b);
+}
+
+.dr-editor-root .ht-nav-btn:hover:not(:disabled) {
+  background: #fff7e8;
+  border-color: var(--line, #19162b);
+  color: var(--ink, #19162b);
+}
+
+.dr-reveal-btn {
+  flex-shrink: 0;
+  background: #fffdf9;
+  border-color: var(--line, #19162b);
+  color: var(--ink, #19162b);
+  font-weight: 700;
+}
+
+.dr-editor-root .dr-reveal-btn:hover:not(:disabled) {
+  background: #fff7e8;
+  border-color: var(--line, #19162b);
+  color: var(--ink, #19162b);
+}
+
+.dr-cm-host {
+  min-height: 360px;
+  max-height: 520px;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid rgba(25, 22, 43, 0.18);
+  background: #fffdf9;
+}
+
+.dr-cm-host .cm-editor {
+  height: 360px;
+  max-height: 520px;
+}
+
+.dr-cm-host .cm-editor.cm-focused {
+  outline: none;
+}
+
+.dr-cm-host .cm-line.dr-cm-line-active {
+  background-color: rgba(254, 182, 134, 0.35);
+  box-shadow: inset 3px 0 0 #f97316;
+}
+
+.dr-editor-locked .dr-cm-host {
+  cursor: not-allowed;
+}
+
+.dr-code-display {
+  font-family: var(--font-mono), ui-monospace, "Cascadia Code", "Fira Code", monospace;
+  font-size: 0.83em;
+  line-height: 1.65;
+  padding: 10px 12px;
+  margin: 0;
+  border-radius: 8px;
+  background: #fffdf9;
+  border: 1px solid rgba(25, 22, 43, 0.18);
+  color: var(--ink, #19162b);
+  min-height: 360px;
+  max-height: 520px;
+  overflow: auto;
+  box-sizing: border-box;
+}
+
+.dr-line {
+  display: block;
+  padding: 1px 6px;
+  border-radius: 3px;
+  white-space: pre;
+  transition: background 0.15s;
+}
+
+.dr-line-active {
+  background: rgba(254, 182, 134, 0.35);
+  outline: 1px solid #f97316;
+}
+
+.dr-textarea {
+  width: 100%;
+  box-sizing: border-box;
+  font-family: var(--font-mono), ui-monospace, "Cascadia Code", "Fira Code", monospace;
+  font-size: 0.85em;
+  line-height: 1.6;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(25, 22, 43, 0.18);
+  background: #fffdf9;
+  color: var(--ink, #19162b);
+  caret-color: var(--ink, #19162b);
+  resize: vertical;
+  min-height: 360px;
+}
+
+.dr-textarea-hidden,
+.dr-editor-root textarea[hidden] {
+  display: none !important;
+}
+
+.dr-editor-locked .dr-textarea,
+.dr-textarea[readonly] {
+  background: #f3ebe0;
+  cursor: not-allowed;
+}
+
+.dr-editor-status {
+  font-size: 0.85em;
+  color: var(--muted-on-paper, #6a6986);
+  min-height: 1.2em;
+}
+
+.dr-stdout-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.dr-stdout-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.dr-stdout-label {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--muted-on-paper, #6a6986);
+}
+
+.dr-stdout-clear {
+  padding: 3px 10px;
+  font-size: 12px;
+}
+
+.dr-stdout {
+  margin: 0;
+  min-height: 88px;
+  max-height: 180px;
+  overflow: auto;
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid rgba(25, 22, 43, 0.18);
+  background: #fffdf9;
+  color: #153d72;
+  font-family: var(--font-mono), ui-monospace, "Cascadia Code", "Fira Code", monospace;
+  font-size: 0.78em;
+  line-height: 1.5;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.dr-stdout-empty {
+  color: #6a6986;
+  font-style: italic;
+}
+
+.dr-stdout-error {
+  background: #fff1f1;
+  border-color: #f87171;
+  color: #9f1239;
+}
+
+@media (max-width: 600px) {
+  .dr-code-display,
+  .dr-textarea,
+  .dr-cm-host,
+  .dr-cm-host .cm-editor {
+    min-height: 240px;
+    max-height: 360px;
+    height: 240px;
+  }
+}

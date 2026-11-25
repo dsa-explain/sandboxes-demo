@@ -1,0 +1,229 @@
+/* Call tree sandbox ---------------------------------------------------- */
+
+.panel-grid.panel-grid--tree {
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.25fr);
+  gap: 1rem;
+  align-items: stretch;
+}
+
+.panel-grid--tree > .panel {
+  min-width: 0;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+}
+
+.panel-grid--tree > .panel > .ct-root,
+.panel-grid--tree > .panel > .dr-editor-root {
+  flex: 1;
+}
+
+.panel-grid--tree .dr-cm-host {
+  min-height: 280px;
+}
+
+.panel-grid--tree .dr-cm-host .cm-editor {
+  height: 280px;
+  max-height: 420px;
+}
+
+.ct-root {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 1rem;
+  box-sizing: border-box;
+  background: #fff;
+  min-height: 100%;
+}
+
+.ct-heading {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted-on-paper, #6a6986);
+  font-weight: 700;
+}
+
+.ct-narration {
+  flex-shrink: 0;
+  min-height: 2.8em;
+  padding: 8px 10px;
+  border-radius: 10px;
+  border: 2px solid #ffe9c3;
+  background: #fffdf9;
+  color: #19162b;
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.78rem;
+  line-height: 1.45;
+  word-break: break-word;
+}
+
+.ct-stage {
+  flex: 1;
+  min-height: 440px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 12px;
+  border: 2px solid #2c64c7;
+  background: #fff;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.ct-tree-wrap {
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+  padding: 8px;
+}
+
+.ct-svg {
+  display: block;
+  margin: 0 auto;
+}
+
+.ct-edge {
+  stroke: #3b82f6;
+  stroke-width: 2.25;
+  stroke-linecap: round;
+}
+
+.ct-edge-done {
+  stroke: #b7b7c4;
+}
+
+.ct-return-line {
+  stroke: #19162b;
+  stroke-width: 2;
+  stroke-linecap: round;
+}
+
+.ct-return-label {
+  font-family: var(--font-mono), ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 15px;
+  font-weight: 800;
+  fill: #19162b;
+  stroke: #fff;
+  stroke-width: 4px;
+  paint-order: stroke fill;
+  text-anchor: middle;
+  dominant-baseline: central;
+}
+
+.ct-return-label-start {
+  text-anchor: start;
+}
+
+.ct-return-label-error {
+  fill: #9f1239;
+}
+
+.ct-node-shape {
+  stroke: #1e4e9e;
+  stroke-width: 3;
+  filter: drop-shadow(0 3px 0 rgba(30, 78, 158, 0.45));
+}
+
+.ct-node-done .ct-node-shape,
+.ct-node-error .ct-node-shape {
+  stroke: #a3a3b2;
+  filter: drop-shadow(0 3px 0 rgba(180, 180, 192, 0.95));
+}
+
+.ct-node-error .ct-node-shape {
+  stroke: #c48b96;
+  filter: drop-shadow(0 3px 0 rgba(196, 139, 150, 0.9));
+}
+
+.ct-node-active .ct-node-shape {
+  stroke: #ff8a1d;
+  stroke-width: 4;
+}
+
+.ct-node-label {
+  font-family: var(--font-mono), ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 13px;
+  font-weight: 700;
+  fill: #fff;
+  text-anchor: middle;
+  dominant-baseline: central;
+  pointer-events: none;
+}
+
+.ct-node-done .ct-node-label {
+  fill: #5c5b70;
+}
+
+.ct-node-error .ct-node-label {
+  fill: #9f1239;
+}
+
+.ct-node-name {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.ct-node-live .ct-node-name {
+  fill: rgba(255, 255, 255, 0.88);
+}
+
+.ct-node-new {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: ct-pop 180ms ease-out;
+}
+
+.ct-return-new {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: ct-pop 180ms ease-out;
+}
+
+.ct-empty {
+  color: #6a6986;
+  font-size: 0.9rem;
+  text-align: center;
+  padding: 48px 12px;
+}
+
+.ct-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+
+.ct-step-label {
+  margin-left: auto;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  color: var(--muted, #6a6986);
+}
+
+@keyframes ct-pop {
+  from {
+    opacity: 0.35;
+    transform: scale(0.72);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ct-node-new,
+  .ct-return-new {
+    animation: none;
+  }
+}
+
+@media (max-width: 860px) {
+  .panel-grid.panel-grid--tree {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,94 @@
+---
+title: "Call Tree"
+subtitle: "Watch each function call grow a node, and turn grey once it returns"
+---
+
+```{=html}
+<div class="panel-grid panel-grid--tree">
+  <div class="panel">
+    <div id="tree-editor"></div>
+  </div>
+  <div class="panel">
+    <div id="tree-viz"></div>
+  </div>
+</div>
+```
+
+```{ojs}
+//| echo: false
+import { PythonEditorInput } from "./js/utils/python-editor-input.js";
+import { mountCallStackTreeViz, callTreeStarterCode } from "./js/call-stack-tree-viz.js";
+
+treeEditor = PythonEditorInput.mountPlayable(
+  document.querySelector("#tree-editor"),
+  {
+    heading: "Python",
+    defaultCode: callTreeStarterCode,
+  }
+)
+```
+
+```{ojs}
+//| echo: false
+treeViz = mountCallStackTreeViz(document.querySelector("#tree-viz"), {
+  editor: treeEditor,
+})
+```
+
+### Sample Exercise: Factorial
+```{python}
+# Given code
+def recursive_function(n):
+    if n == 0:
+        return 1
+    return n * recursive_function(n-1)
+
+print(recursive_function(5))
+```
+
+### Sample Exercise: Fibonacci Sequence
+
+```{python}
+# Given code
+def recursive_function(n):
+    if n <= 1:
+        return n
+    return recursive_function(n-1) + recursive_function(n-2)
+
+print(recursive_function(5))
+```
+
+### Sample Exercise: Tribonacci (3 calls)
+
+```{python}
+# Given code
+def recursive_function(n):
+    # Base cases to stop the recursion
+    if n == 0:
+        return 0
+    if n == 1 or n == 2:
+        return 1
+    
+    # Three recursive calls inside a single function
+    return recursive_function(n - 1) + recursive_function(n - 2) + recursive_function(n - 3)
+
+# Example usage:
+print(recursive_function(6))  # Output: 13 (0, 1, 1, 2, 4, 7, 13...)
+
+```
+
+### Sample Exercise: Greatest Common Divisor (Multiple Parameters)
+
+```{python}
+def recursive_function(a, b):
+  # Base case: if b is 0, the gcd is a
+  if b == 0:
+    return a
+  # Recursive case: call gcd with b and the remainder of a / b
+  else:
+    return recursive_function(b, a % b)
+
+
+# Example usage:
+print(recursive_function(48, 18))  # Output: 6
+```

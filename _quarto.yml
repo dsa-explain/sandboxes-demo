@@ -1,0 +1,44 @@
+project:
+  type: website
+  output-dir: _site
+  render:
+    - index.qmd
+    - pages/*.qmd
+
+website:
+  title: "Data Structures Sandbox"
+  sidebar:
+    style: "docked"
+    search: true
+    contents:
+      - href: index.qmd
+        text: Home
+      - href: pages/stack-sandbox.qmd
+        text: Stack
+      - href: pages/queue-sandbox.qmd
+        text: Queue
+      - href: pages/list-matrix-sandbox.qmd
+        text: List
+      - href: pages/call-stack-tree-viz.qmd
+        text: Recursive Calls
+      - href: pages/call-stack-sandbox.qmd
+        text: Recursive Call Stack
+      - href: pages/graph-sandbox.qmd
+        text: Graph Sandbox
+
+format:
+  html:
+    theme: cosmo
+    toc: false
+    css:
+      - pages/css/styles.css
+      - pages/css/graph.css
+      - pages/css/call-stack.css
+      - pages/css/call-stack-tree.css
+      - pages/css/stack-ds.css
+      - pages/css/list-ds.css
+    grid:
+      body-width: 1000px
+    embed-resources: false
+
+jupyter: dsa

@@ -1,0 +1,439 @@
+/* graph.css -----------------------------------------------------------
+   Graph canvas (gv-*). The canvas is an "ink" plane (chalkboard /
+   lab-notebook feel); coral is the selection accent across views.
+   Shared tokens / layout / editor styles live in styles.css.
+------------------------------------------------------------------------ */
+
+/* ---------- panel + static graph ---------- */
+
+.panel .gv-root.gv-static {
+  display: block;
+  width: 100%;
+  padding: 0.75rem;
+  box-sizing: border-box;
+}
+
+/* ---------- graph canvas (gv-*) ---------- */
+
+.gv-root {
+  background: var(--ink);
+  border-radius: var(--radius-md);
+}
+
+.gv-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.6rem 0.7rem;
+  background: var(--ink-soft);
+  border-bottom: var(--border-w) solid rgba(255, 255, 255, 0.08);
+}
+
+.gv-btn-group {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.2rem 0.35rem 0.2rem 0.45rem;
+  border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.gv-btn-group-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.28rem;
+  color: #a9a8bd;
+  flex-shrink: 0;
+}
+
+.gv-btn-group-badge svg {
+  width: 12px;
+  height: 12px;
+  display: block;
+}
+
+.gv-btn-group-label {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.gv-btn-cluster {
+  display: inline-flex;
+  gap: 0.25rem;
+}
+
+.gv-btn {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: #fdfeff;
+  background: var(--ink);
+  border: 1.5px solid #4d4c6b;
+  border-radius: var(--radius-sm);
+  padding: 0.4rem 0.6rem;
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.gv-btn:hover {
+  background: #2a2545;
+  border-color: var(--coral);
+}
+
+.gv-btn:focus-visible {
+  outline: 2px solid var(--coral);
+  outline-offset: 1px;
+}
+
+.gv-btn-active {
+  background: var(--coral);
+  border-color: var(--line);
+  color: var(--ink);
+}
+
+.gv-status {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--amber);
+  margin-left: auto;
+  min-height: 1.1em;
+}
+
+.gv-toolbar-end {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-left: 0.25rem;
+}
+
+.gv-status-flash {
+  color: var(--coral);
+}
+
+.gv-caption {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: #a9a8bd;
+  padding: 0.5rem 0.7rem 0;
+}
+
+.gv-caption-warn {
+  color: var(--coral);
+}
+
+.gv-caption-cycle {
+  color: var(--coral);
+}
+
+.gv-caption-ok {
+  color: #86efac;
+}
+
+.gv-canvas {
+  background-image: radial-gradient(var(--ink-grid) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+
+.gv-svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  cursor: default;
+}
+
+.gv-edge-line {
+  stroke: rgba(255, 255, 255, 0.35);
+  stroke-width: 1.6px;
+  cursor: pointer;
+}
+
+.gv-edge-line:hover {
+  stroke: rgba(255, 255, 255, 0.6);
+}
+
+.gv-edge-line.gv-selected {
+  stroke: var(--coral);
+  stroke-width: 2.4px;
+}
+
+.gv-arrowhead {
+  fill: rgba(255, 255, 255, 0.35);
+}
+
+.gv-edge-label {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 10px;
+  fill: var(--amber);
+  text-anchor: middle;
+  pointer-events: none;
+}
+
+.gv-node {
+  cursor: grab;
+}
+
+.gv-node:active {
+  cursor: grabbing;
+}
+
+.gv-node-circle {
+  fill: var(--amber);
+  stroke: var(--amber-stroke);
+  stroke-width: 2px;
+  transition: fill 0.15s ease, stroke 0.15s ease;
+}
+
+.gv-node-circle.gv-selected {
+  fill: var(--coral);
+  stroke: #fdfeff;
+  stroke-width: 2.5px;
+}
+
+.gv-node-circle.gv-neighbour {
+  fill: var(--neighbour-node);
+  stroke: var(--neighbour-node-stroke);
+  stroke-width: 2px;
+}
+
+.gv-edge-line.gv-neighbour-edge {
+  stroke: var(--coral);
+  stroke-width: 2.2px;
+  stroke-opacity: 0.85;
+}
+
+.gv-node-circle.gv-pending {
+  fill: var(--ink);
+  stroke: var(--coral);
+  stroke-width: 2.5px;
+  stroke-dasharray: 3 2;
+}
+
+.gv-node-circle.gv-visited {
+  stroke: #fdfeff;
+  stroke-width: 2.5px;
+  filter: brightness(0.92);
+}
+
+.gv-node-circle.gv-color-white {
+  fill: #ffffff;
+  stroke: var(--ink);
+  stroke-width: 2px;
+  filter: none;
+}
+
+.gv-node-circle.gv-color-blue {
+  fill: var(--neighbour-node);
+  stroke: var(--neighbour-node-stroke);
+  stroke-width: 2px;
+  filter: none;
+}
+
+.gv-node-circle.gv-color-black {
+  fill: var(--ink);
+  stroke: #fdfeff;
+  stroke-width: 2.5px;
+  filter: none;
+}
+
+.gv-node-circle.gv-color-orange {
+  fill: var(--coral);
+  stroke: var(--ink);
+  stroke-width: 2.5px;
+  filter: none;
+}
+
+.gv-node-circle.gv-color-focus {
+  stroke: var(--coral);
+  stroke-width: 3px;
+}
+
+.gv-node:has(.gv-color-black) .gv-node-label {
+  fill: #fdfeff;
+}
+
+.gv-node-circle.gv-visited.gv-selected,
+.gv-node-circle.gv-visited.gv-neighbour {
+  filter: none;
+}
+
+.gv-edge-line.gv-traversed-edge {
+  stroke: var(--neighbour-node);
+  stroke-width: 2.4px;
+  stroke-opacity: 0.95;
+}
+
+.gv-node-label {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 12px;
+  fill: var(--ink);
+  pointer-events: none;
+}
+
+/* ---------- static graph (inline, transparent) ---------- */
+
+.gv-root.gv-static {
+  background: transparent;
+  display: inline-block;
+  max-width: 100%;
+  vertical-align: middle;
+}
+
+.gv-static .gv-canvas {
+  background: transparent;
+  background-image: none;
+}
+
+.gv-static .gv-svg {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.gv-static .gv-node {
+  cursor: default;
+}
+
+.gv-static .gv-edge-line {
+  stroke: var(--ink);
+  stroke-opacity: 0.45;
+  cursor: default;
+}
+
+.gv-static .gv-edge-line.gv-traversed-edge {
+  stroke: var(--neighbour-node);
+  stroke-opacity: 0.95;
+}
+
+.gv-static .gv-arrowhead {
+  fill: var(--ink);
+  fill-opacity: 0.45;
+}
+
+.gv-static .gv-edge-label {
+  fill: var(--graphite);
+  stroke: var(--paper);
+  stroke-width: 5px;
+  stroke-linejoin: round;
+  paint-order: stroke fill;
+}
+
+.gv-static .gv-caption {
+  color: var(--muted);
+  padding-left: 0;
+}
+
+.gv-static .gv-node-circle.gv-visited {
+  stroke: var(--ink);
+}
+
+/* ---------- prompt modal ---------- */
+
+.gv-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background: rgba(25, 22, 43, 0.6);
+  animation: gv-modal-fade-in 0.12s ease;
+}
+
+.gv-modal {
+  width: min(100%, 360px);
+  background: var(--paper);
+  border: var(--border-w-thick) solid var(--line);
+  border-radius: var(--radius-md);
+  padding: 1.1rem 1.15rem 1rem;
+  animation: gv-modal-rise 0.16s ease;
+}
+
+.gv-modal-title {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  margin: 0 0 0.35rem;
+}
+
+.gv-modal-message {
+  font-size: 0.88rem;
+  color: var(--graphite);
+  margin: 0 0 0.85rem;
+  line-height: 1.4;
+}
+
+.gv-modal-input {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  color: var(--ink);
+  background: #fff;
+  border: var(--border-w) solid var(--line);
+  border-radius: var(--radius-sm);
+  padding: 0.55rem 0.65rem;
+  margin-bottom: 0.95rem;
+}
+
+.gv-modal-input:focus {
+  outline: none;
+  border-color: var(--coral);
+  box-shadow: 0 0 0 3px var(--coral-soft);
+}
+
+.gv-modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.45rem;
+}
+
+.gv-modal-cancel {
+  color: var(--ink);
+  background: var(--paper);
+  border: var(--border-w) solid var(--line);
+}
+
+.gv-modal-cancel:hover {
+  background: var(--paper-edge);
+}
+
+.gv-modal-submit {
+  background: var(--coral);
+  border: var(--border-w) solid var(--line);
+  color: var(--ink);
+  font-weight: 700;
+}
+
+.gv-modal-submit:hover {
+  background: var(--paper-edge);
+}
+
+@keyframes gv-modal-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes gv-modal-rise {
+  from {
+    opacity: 0;
+    transform: translateY(6px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}

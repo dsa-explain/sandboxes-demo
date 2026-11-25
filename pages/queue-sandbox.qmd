@@ -1,0 +1,38 @@
+---
+title: "Queue"
+subtitle: "Visualise a queue of items as it is updated"
+---
+
+## Sandbox
+
+```{=html}
+<div class="panel-grid panel-grid--stack">
+  <div class="panel">
+    <div id="queue-editor"></div>
+  </div>
+  <div class="panel">
+    <div id="queue-viz"></div>
+  </div>
+</div>
+```
+
+```{ojs}
+//| echo: false
+import { PythonEditorInput } from "./js/utils/python-editor-input.js";
+import { mountQueueViz, queueStarterCode } from "./js/queue-viz.js";
+
+queueEditor = PythonEditorInput.mountPlayable(
+  document.querySelector("#queue-editor"),
+  {
+    heading: "Python",
+    defaultCode: queueStarterCode,
+  }
+)
+```
+
+```{ojs}
+//| echo: false
+queueViz = mountQueueViz(document.querySelector("#queue-viz"), {
+  editor: queueEditor,
+})
+```
