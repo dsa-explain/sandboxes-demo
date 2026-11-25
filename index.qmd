@@ -3,9 +3,9 @@ title: "Data Structures Sandbox"
 subtitle: "Code Editor + visualizations for data structures"
 ---
 
-- **[Stack](pages/stack-sandbox.qmd)** -- run a function and watch each call land on the stack, then pop off when it returns.
-- **[Queue](pages/queue-sandbox.qmd)** -- run a function and watch each call land on the queue, then pop off when it returns.
-- **[List](pages/list-matrix-sandbox.qmd)** -- a list of nodes and edges, starting with a single row before seeing the whole list or the same graph as a grid of 0s and 1s, again starting with a single row before the full N x N matrix.
-- **[Recursive Calls](pages/call-stack-tree-viz.qmd)** -- run a function and watch each call grow a node. Returned calls turn grey, with an arrow showing the value sent back.
-- **[Recursive Call Stack](pages/call-stack-sandbox.qmd)** -- run a function and watch each call land on the call stack, then pop off when it returns.
-- **[Graph Sandbox](pages/graph-sandbox.qmd)** -- a blank canvas with the full toolbar: add and delete nodes and edges, update labels, and select things to see them highlighted.
+- **[Stack](pages/stack-sandbox.qmd)** -- stack visualisation.
+- **[Queue](pages/queue-sandbox.qmd)** -- simple queue visualisation.
+- **[List](pages/list-matrix-sandbox.qmd)** -- visualisation of a 1D list with optional pointers.
+- **[Recursive Calls](pages/call-stack-tree-viz.qmd)** -- tree like visualisation of recursive calls.
+- **[Recursive Call Stack](pages/call-stack-sandbox.qmd)** -- stack like visualisation of recursive calls. (is it useful?)
+- **[Graph Sandbox](pages/graph-sandbox.qmd)** -- all kinds of graphs
