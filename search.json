@@ -1,0 +1,102 @@
+[
+  {
+    "objectID": "pages/stack-sandbox.html",
+    "href": "pages/stack-sandbox.html",
+    "title": "Stack",
+    "section": "",
+    "text": "import { PythonEditorInput } from \"./js/utils/python-editor-input.js\";\nimport { mountStackViz, stackStarterCode } from \"./js/stack-viz.js\";\n\nstackEditor = PythonEditorInput.mountPlayable(\n  document.querySelector(\"#stack-editor\"),\n  {\n    heading: \"Python\",\n    defaultCode: stackStarterCode,\n  }\n)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nstackViz = mountStackViz(document.querySelector(\"#stack-viz\"), {\n  editor: stackEditor,\n})",
+    "crumbs": [
+      "Stack"
+    ]
+  },
+  {
+    "objectID": "pages/stack-sandbox.html#sandbox",
+    "href": "pages/stack-sandbox.html#sandbox",
+    "title": "Stack",
+    "section": "",
+    "text": "import { PythonEditorInput } from \"./js/utils/python-editor-input.js\";\nimport { mountStackViz, stackStarterCode } from \"./js/stack-viz.js\";\n\nstackEditor = PythonEditorInput.mountPlayable(\n  document.querySelector(\"#stack-editor\"),\n  {\n    heading: \"Python\",\n    defaultCode: stackStarterCode,\n  }\n)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nstackViz = mountStackViz(document.querySelector(\"#stack-viz\"), {\n  editor: stackEditor,\n})",
+    "crumbs": [
+      "Stack"
+    ]
+  },
+  {
+    "objectID": "pages/list-matrix-sandbox.html",
+    "href": "pages/list-matrix-sandbox.html",
+    "title": "List",
+    "section": "",
+    "text": "variable names starting with p and having the type int will be considered as pointers. E.x. p0, pleft etc\nonly array with name arr will be visualised.\n\n\n  \n    \n  \n  \n    \n  \n\n\nimport { PythonEditorInput } from \"./js/utils/python-editor-input.js\";\nimport { mountListViz, listStarterCode } from \"./js/list-viz.js\";\n\nlistEditor = PythonEditorInput.mountPlayable(\n  document.querySelector(\"#list-editor\"),\n  {\n    heading: \"Python\",\n    defaultCode: listStarterCode,\n  }\n)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nlistViz = mountListViz(document.querySelector(\"#list-viz\"), {\n  editor: listEditor,\n})",
+    "crumbs": [
+      "List"
+    ]
+  },
+  {
+    "objectID": "pages/list-matrix-sandbox.html#sandbox",
+    "href": "pages/list-matrix-sandbox.html#sandbox",
+    "title": "List",
+    "section": "",
+    "text": "variable names starting with p and having the type int will be considered as pointers. E.x. p0, pleft etc\nonly array with name arr will be visualised.\n\n\n  \n    \n  \n  \n    \n  \n\n\nimport { PythonEditorInput } from \"./js/utils/python-editor-input.js\";\nimport { mountListViz, listStarterCode } from \"./js/list-viz.js\";\n\nlistEditor = PythonEditorInput.mountPlayable(\n  document.querySelector(\"#list-editor\"),\n  {\n    heading: \"Python\",\n    defaultCode: listStarterCode,\n  }\n)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nlistViz = mountListViz(document.querySelector(\"#list-viz\"), {\n  editor: listEditor,\n})",
+    "crumbs": [
+      "List"
+    ]
+  },
+  {
+    "objectID": "pages/call-stack-tree-viz.html",
+    "href": "pages/call-stack-tree-viz.html",
+    "title": "Call Tree",
+    "section": "",
+    "text": "import { PythonEditorInput } from \"./js/utils/python-editor-input.js\";\nimport { mountCallStackTreeViz, callTreeStarterCode } from \"./js/call-stack-tree-viz.js\";\n\ntreeEditor = PythonEditorInput.mountPlayable(\n  document.querySelector(\"#tree-editor\"),\n  {\n    heading: \"Python\",\n    defaultCode: callTreeStarterCode,\n  }\n)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\ntreeViz = mountCallStackTreeViz(document.querySelector(\"#tree-viz\"), {\n  editor: treeEditor,\n})\n\n\n\n\n\n\n\nSample Exercise: Factorial\n\n# Given code\ndef recursive_function(n):\n    if n == 0:\n        return 1\n    return n * recursive_function(n-1)\n\nprint(recursive_function(5))\n\n\n\nSample Exercise: Fibonacci Sequence\n\n# Given code\ndef recursive_function(n):\n    if n &lt;= 1:\n        return n\n    return recursive_function(n-1) + recursive_function(n-2)\n\nprint(recursive_function(5))\n\n\n\nSample Exercise: Tribonacci (3 calls)\n\n# Given code\ndef recursive_function(n):\n    # Base cases to stop the recursion\n    if n == 0:\n        return 0\n    if n == 1 or n == 2:\n        return 1\n    \n    # Three recursive calls inside a single function\n    return recursive_function(n - 1) + recursive_function(n - 2) + recursive_function(n - 3)\n\n# Example usage:\nprint(recursive_function(6))  # Output: 13 (0, 1, 1, 2, 4, 7, 13...)\n\n\n\nSample Exercise: Greatest Common Divisor (Multiple Parameters)\n\ndef recursive_function(a, b):\n  # Base case: if b is 0, the gcd is a\n  if b == 0:\n    return a\n  # Recursive case: call gcd with b and the remainder of a / b\n  else:\n    return recursive_function(b, a % b)\n\n\n# Example usage:\nprint(recursive_function(48, 18))  # Output: 6",
+    "crumbs": [
+      "Recursive Calls"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Data Structures Sandbox",
+    "section": "",
+    "text": "Stack – stack visualisation.\nQueue – simple queue visualisation.\nList – visualisation of a 1D list with optional pointers.\nRecursive Calls – tree like visualisation of recursive calls.\nRecursive Call Stack – stack like visualisation of recursive calls. (is it useful?)\nGraph Sandbox – all kinds of graphs",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "pages/call-stack-sandbox.html",
+    "href": "pages/call-stack-sandbox.html",
+    "title": "Call Stack Sandbox",
+    "section": "",
+    "text": "Write a function and call it. The page traces every call — including recursive ones — and draws the stack instead of printing arrows.\nEach call is a single frame. The parameters sit inside that frame, and the frame outlined in orange is the call that is running. When a call returns, it stays on the stack in grey with its result beside it. The note above the stack says when a function is called and what came back. print() still shows up under Output.\n\n  \n    \n  \n  \n    \n  \n\n\nimport { PythonEditorInput } from \"./js/utils/python-editor-input.js\";\nimport { mountCallStackViz, callStackStarterCode } from \"./js/call-stack-viz.js\";\n\nstackEditor = PythonEditorInput.mountPlayable(\n  document.querySelector(\"#stack-editor\"),\n  {\n    heading: \"Python\",\n    defaultCode: callStackStarterCode,\n  }\n)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nstackViz = mountCallStackViz(document.querySelector(\"#stack-viz\"), {\n  editor: stackEditor,\n})",
+    "crumbs": [
+      "Recursive Call Stack"
+    ]
+  },
+  {
+    "objectID": "pages/graph-sandbox.html",
+    "href": "pages/graph-sandbox.html",
+    "title": "Sandbox",
+    "section": "",
+    "text": "Use the toolbar to add nodes and edges, select a node or edge by clicking it, then update or delete the current selection. This is the same graph engine and canvas used throughout the rest of the site – everything you learn here carries over.\n\n\n\n\n\n\n\n\n\n\n\nimport { GraphEngine } from \"./js/graph-engine.js\";\nimport { mountGraphView } from \"./js/graph-view.js\";\n\nsandboxData = ({\n  nodes: sb_nodes,\n  edges: sb_edges,\n});\n\nsandboxEngine = new GraphEngine(sandboxData, { directed: false });\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nsandboxView = mountGraphView(sandboxEngine, document.querySelector(\"#sandbox-graph\"), {\n  width: 760,\n  height: 460,\n});",
+    "crumbs": [
+      "Graph Sandbox"
+    ]
+  },
+  {
+    "objectID": "pages/queue-sandbox.html",
+    "href": "pages/queue-sandbox.html",
+    "title": "Queue",
+    "section": "",
+    "text": "import { PythonEditorInput } from \"./js/utils/python-editor-input.js\";\nimport { mountQueueViz, queueStarterCode } from \"./js/queue-viz.js\";\n\nqueueEditor = PythonEditorInput.mountPlayable(\n  document.querySelector(\"#queue-editor\"),\n  {\n    heading: \"Python\",\n    defaultCode: queueStarterCode,\n  }\n)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nqueueViz = mountQueueViz(document.querySelector(\"#queue-viz\"), {\n  editor: queueEditor,\n})",
+    "crumbs": [
+      "Queue"
+    ]
+  },
+  {
+    "objectID": "pages/queue-sandbox.html#sandbox",
+    "href": "pages/queue-sandbox.html#sandbox",
+    "title": "Queue",
+    "section": "",
+    "text": "import { PythonEditorInput } from \"./js/utils/python-editor-input.js\";\nimport { mountQueueViz, queueStarterCode } from \"./js/queue-viz.js\";\n\nqueueEditor = PythonEditorInput.mountPlayable(\n  document.querySelector(\"#queue-editor\"),\n  {\n    heading: \"Python\",\n    defaultCode: queueStarterCode,\n  }\n)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nqueueViz = mountQueueViz(document.querySelector(\"#queue-viz\"), {\n  editor: queueEditor,\n})",
+    "crumbs": [
+      "Queue"
+    ]
+  }
+]
